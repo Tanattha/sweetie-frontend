@@ -1,15 +1,16 @@
 import React from "react";
+import Filter from "../Cart/Filter";
 import Products from "../Cart/Products";
-//import Cart from "../Cart/Cart";
-export default function Menu() {
+import Cart from "../Cart/Cart";
+import "./Menu.css";
+export default function About() {
   
     return (
-      <div>
-        <div className="content">
-          <div className="main">         
-            <Products />
-          </div>
-        </div>
+      <div> 
+          <Filter />
+          <Products />
+          <Cart />
       </div>
     );
-    }
+   
+  };

@@ -1,24 +1,56 @@
-import React from 'react';
-import './App.css';
+import React from "react";
 import store from "./store";
-import Navbar from './components/Navbar/Navbar';
-import Footer from './components/Home/Footer';
 import { Provider } from "react-redux";
-import { BrowserRouter as Router, Switch } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom';
+import About from './components/About/About';  
+import Home from './components/Home/Home';  
+import Menu from "./components/Menu/Menu";
+import Footer from './components/Home/Footer';
+
 
 class App extends React.Component {
   render() {
     return (
       <Provider store={store}>
-       <Router>
-       <Switch>
-       <Navbar />
-       </Switch>
-       <Footer />
-     </Router>
-    </Provider>
-    );
-  }
-}
+      <Router>
+      <nav className="navbar">
+        <a className="navbar-brand" href="/">
+          <img src="img/logo.png" alt="logo" className="NavImg" />
+        </a>
 
+        <ul className="navbar-nav">
+        <li className="nav-item">
+            <Link to="/about" className="nav-link">
+              About
+            </Link>
+          </li>
+
+          <li className="nav-item">
+            <Link to="/menu" className="nav-link">
+              Menu
+            </Link>
+          </li>
+
+          <li className="nav-item">
+            <Link to="/contact" className="nav-link">
+              Contact
+            </Link>
+          </li>
+          
+        </ul>
+      </nav>
+      
+      <Switch>
+      <Route exact path="/" component={Home}/>
+      <Route exact path="/about" component={About}/>
+      <Route exact path="/menu" component={Menu}/>
+      </Switch>
+      <Footer />
+    </Router>
+    </Provider>
+   
+  )
+}
+}
 export default App;
+

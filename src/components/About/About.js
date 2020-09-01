@@ -12,12 +12,7 @@ export default function About() {
           <p className="about-desc">
           Our business is not only to sell delicious sweets but we like to say we're in the business of making lasting memories. We are honored to be a part of our customer's special moments and to thank them we strive to make everything as easy and smooth as possible. Our motto has always been to leave the world a little sweeter than we found it.
           </p>
-          <a
-          href="/"
-          className="btn banner-link text-uppercase my-2"
-        >
-          ORDER NOW!
-        </a>
+        
         </div>
         <div className="align-self-center">
           <div className="about-img__container">

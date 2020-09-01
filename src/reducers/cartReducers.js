@@ -1,6 +1,6 @@
 import { ADD_TO_CART, REMOVE_FROM_CART } from "../actions/types";
 
-export const cartReducer = (
+export const cartReducers = (
   state = { cartItems: JSON.parse(localStorage.getItem("cartItems") || "[]") },
   action
 ) => {

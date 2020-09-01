@@ -9,7 +9,7 @@ export default function Home() {
           welcome to <strong className="banner-title ">Sweetie</strong>
         </h1>
         <a
-          href="/"
+          href="/menu"
           className="btn banner-link text-uppercase my-2"
           >
           ORDER NOW!

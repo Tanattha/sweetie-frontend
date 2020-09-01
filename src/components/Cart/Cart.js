@@ -96,9 +96,9 @@ class Cart extends Component {
             <Fade left cascade>
               <ul className="cart-items">
                 {cartItems.map((item) => (
-                  <li key={item._id}>
+                  <li key={item.id}>
                     <div>
-                      <img src={item.image} alt={item.title}></img>
+                      <img src={item.url} alt={item.title}></img>
                     </div>
                     <div>
                       <div>{item.title}</div>
@@ -193,5 +193,4 @@ export default connect(
     cartItems: state.cart.cartItems,
   }),
   { removeFromCart, createOrder, clearOrder }
-  
 )(Cart);
