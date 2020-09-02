@@ -56,30 +56,15 @@ class Products extends Component {
                       alt={product.title} 
                       className="store-img"></img>
                     </a>
-                    
-                    
-                    
                     <div className="item-text">
                     <p>{product.title}</p>
-                   
-                   
                      <p>
                        {formatCurrency(product.price)}</p>
                       <span className="store-item-icon" 
                       onClick={() => this.props.addToCart(product)}>
                       <FontAwesomeIcon icon={faShoppingCart} />
-                    </span>
-                      
+                    </span>                 
                     </div>
-                     
-                     {/*} <button
-                        onClick={() => this.props.addToCart(product)}
-                        className="button primary"
-                      >
-                        Add To Cart
-                      </button>
-                    */}
-                    
                   </div>
                   
                 </li>
@@ -93,29 +78,32 @@ class Products extends Component {
         {product && (
           <Modal isOpen={true} onRequestClose={this.closeModal}>
             <Zoom>
-              <button className="close-modal" onClick={this.closeModal}>
+              
+              <div className="product-details">
+              <button className="btn close-modal" onClick={this.closeModal}>
                 x
               </button>
-              <div className="product-details">
-                <img src={product.image} alt={product.title}></img>
+                <img src={BASE_URL+product.url} alt={product.title}></img>
+
                 <div className="product-details-description">
-                  <p>
-                    <strong>{product.title}</strong>
+                  <p className="item-text">
+                  TITLE : {product.title}
                   </p>
-                  <p>{product.description}</p>
-                 
-                  <div className="product-price">
-                    <div>{formatCurrency(product.price)}</div>
-                    <button
-                      className="button primary"
-                      onClick={() => {
-                        this.props.addToCart(product);
-                        this.closeModal();
-                      }}
-                    >
-                      Add To Cart
-                    </button>
-                  </div>
+                  <p className="item-text">
+                  DESCRIPTION : {product.description}
+                  </p>
+                   
+                    <p className="item-text">
+                     PRICE : {formatCurrency(product.price)}
+                    </p>
+
+                    <p className="store-item-icon pointCursor" 
+                      onClick={() => this.props.addToCart(product)}>
+                      ADD TO CART : <FontAwesomeIcon icon={faShoppingCart} />
+                    </p>                 
+                </div>
+                <div className="product-details-description">
+                 <p>REVIEW GOES HERE</p> 
                 </div>
               </div>
             </Zoom>

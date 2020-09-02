@@ -2,14 +2,17 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import "./Product.css";
 import { filterProducts, sortProducts } from "../../actions/productActions";
-//import Products from "./Products";
+
 
 class Filter extends Component {
+  
   render() {
+  
     return !this.props.filteredProducts ? (
       <div>Loading...</div>
     ) : (
-      <div className="filter">
+      <div className="filter headmenu-image">
+        
          <h1 className="filter-header">
       our <strong className="banner-title ">menu</strong>
       </h1>
@@ -37,7 +40,7 @@ class Filter extends Component {
         
           Filter By :{" "}
           <select
-            value={this.props.size}
+            value={this.props.category}
             className="btn btn-black filter-btn filter-value"
             onChange={(e) =>
               this.props.filterProducts
@@ -47,9 +50,9 @@ class Filter extends Component {
             <option value="">All</option>
             <option value="cupcake">Cupcakes</option>
             <option value="donut">Donuts</option>
-            <option value="cookies">Cookies</option>
-            <option value="rolls">Rolls</option>
-            <option value="cakes">Cakes</option>
+            <option value="cookie">Cookies</option>
+            <option value="roll">Rolls</option>
+            <option value="cake">Cakes</option>
           </select>
           </p>
         </div>

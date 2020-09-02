@@ -1,5 +1,4 @@
 import {
-  
   FETCH_PRODUCTS,
   FILTER_PRODUCTS_BY_CATEGORY,
   ORDER_PRODUCTS_BY_PRICE,
@@ -7,7 +6,6 @@ import {
 
 export const productReducers = (state = {}, action) => {
   switch (action.type) {
-    
     case FILTER_PRODUCTS_BY_CATEGORY:
       return {
         ...state,
@@ -22,7 +20,9 @@ export const productReducers = (state = {}, action) => {
       };
     case FETCH_PRODUCTS:
       return { items: action.payload, filteredItems: action.payload };
+    
     default:
       return state;
   }
+  
 };

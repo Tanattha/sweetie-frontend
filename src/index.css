@@ -7,6 +7,7 @@
   --mainBlack: #000;
   --yellowTrans: rgba(249, 228, 148, 0.5);
   --mainGrey: rgb(238, 238, 238);
+  --pastalPink: #ff9fa4
 }
 html,
 body {
@@ -235,8 +236,4 @@ i.fas {
   outline: none !important;
   outline: none;
   cursor: pointer;
-}
-
-.itemRight {
-
 }

@@ -1,4 +1,4 @@
-import { FETCH_PRODUCTS,FILTER_PRODUCTS_BY_CATEGORY,ORDER_PRODUCTS_BY_PRICE } from "./types";
+import { FETCH_PRODUCTS, FILTER_PRODUCTS_BY_CATEGORY, ORDER_PRODUCTS_BY_PRICE } from "./types";
 import { PRODUCTS_URL } from "../config"
 
 /*
@@ -35,11 +35,10 @@ export const filterProducts = (products, category) => (dispatch) => {
       items:
       category === ""
           ? products
-          : products.filter((x) => x.category),
+          : products.filter((x) => x.category.indexOf(category) >= 0),
     },
   });
 };
-
 
 
 export const sortProducts = (filteredProducts, sort) => (dispatch) => {
@@ -57,7 +56,6 @@ export const sortProducts = (filteredProducts, sort) => (dispatch) => {
         : 1
     );
   }
-  console.log(sortedProducts);
   dispatch({
     type: ORDER_PRODUCTS_BY_PRICE,
     payload: {
