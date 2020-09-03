@@ -8,8 +8,10 @@ import { removeFromCart } from "../../actions/cartActions";
 import { createOrder, clearOrder } from "../../actions/orderActions";
 import { BASE_URL } from "../../config"
 import "./Cart.css";
+import "../Product/Product.css"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faCreditCard } from '@fortawesome/free-solid-svg-icons'
+import { faCreditCard, faCheckCircle } from '@fortawesome/free-solid-svg-icons'
+
 
 class Cart extends Component {
   constructor(props) {
@@ -29,8 +31,9 @@ class Cart extends Component {
       name: this.state.name,
       email: this.state.email,
       cartItems: this.props.cartItems,
-      total: this.props.cartItems.reduce((a, c) => a + c.price * c.count, 0),
-    };
+      
+    }
+    console.log('order:', order);
     this.props.createOrder(order);
   };
   closeModal = () => {
@@ -48,43 +51,38 @@ class Cart extends Component {
            You have {cartItems.length} in the cart{" "}
           </div>
         )}
-
+{/* ORDER POP UP*/}
         {order && (
           <Modal isOpen={true} onRequestClose={this.closeModal}>
             <Zoom>
-              <button className="close-modal" onClick={this.closeModal}>
+             } 
+              <div className="order-details">
+              <button className="btn close-modal" onClick={this.closeModal}>
                 x
               </button>
-              <div className="order-details">
-                <h3 className="success-message">Your order has been placed.</h3>
-                <h2>Order {order.id}</h2>
+                <h3 className="cart cart-header">Your order has been placed.</h3>
+                
                 <ul>
-                  <li>
-                    <div>Name:</div>
-                    <div>{order.name}</div>
+                 <li className="order-text">
+                   Order ID : <sapn className="orderColor">{order.id}</sapn>
+                   </li>
+                  <li className="order-text">
+                   Name : <sapn className="orderColor">{order.name}</sapn>
                   </li>
-                  <li>
-                    <div>Email:</div>
-                    <div>{order.email}</div>
+                  <li className="order-text">
+                    Email : <sapn className="orderColor">{order.email}</sapn>
                   </li>
-                  
-                  <li>
-                    <div>Date:</div>
-                    <div>{order.created_at}</div>
+                  <li className="order-text">
+                    Total: <sapn className="orderColor">
+                      {formatCurrency(cartItems.reduce((a, b) => a + b.price * b.count, 0))}
+                      </sapn>
                   </li>
-                  <li>
-                    <div>Total:</div>
-                    <div>{formatCurrency(order.total)}</div>
-                  </li>
-                  <li>
-                    <div>Cart Items:</div>
-                    <div>
-                      {order.cartItems.map((x) => (
-                        <div>
-                          {x.count} {" x "} {x.title}
-                        </div>
+                  <li className="order-text"> 
+                  Cart Items: {cartItems.map((product) => (
+                        
+                          <sapn className="orderColor">{product.count} {" x "} {product.title}</sapn>
+                        
                       ))}
-                    </div>
                   </li>
                 </ul>
               </div>
@@ -92,6 +90,9 @@ class Cart extends Component {
           </Modal>
         )}
         <div>
+
+
+{/* CART */}
           <div className="cart">
             <Fade left cascade>
               <ul className="cart-items">
@@ -127,6 +128,8 @@ class Cart extends Component {
               </ul>
             </Fade>
           </div>
+
+{/* CHECKOUT */} 
           {cartItems.length !== 0 && (
             <div>
               <div className="cart">
@@ -134,7 +137,7 @@ class Cart extends Component {
                   <div>
                     Total:{" "}
                     {formatCurrency(
-                      cartItems.reduce((a, c) => a + c.price * c.count, 0)
+                      cartItems.reduce((a, b) => a + b.price * b.count, 0)
                     )}
                   </div>
                    <span className="checkoutIcon" 
@@ -150,32 +153,29 @@ class Cart extends Component {
                       <ul className="form-container">
                         <p className="cart cart-header">CHECK OUT </p>
                         <li>
-                          <label className="cart-items-text">Email</label>
+                          <label className="cart-items-text">Email : </label>
                           <input
                             name="email"
                             type="email"
                             required
+                            className="form-input"
                             onChange={this.handleInput}
                           ></input>
                         </li>
                         <li>
-                          <label className="cart-items-text">Name</label>
+                          <label className="cart-items-text">Name : </label>
                           <input
                             name="name"
                             type="text"
                             required
+                            className="form-input"
                             onChange={this.handleInput}
                           ></input>
                         </li>
                         
                         <li>
-                          <button className="chechoutButton cart-items-text" type="submit">
-                            Checkout and Sign Up
-                          </button>
-                        </li>
-                        <li>
-                          <button className="chechoutButton cart-items-text" type="submit">
-                            Checkout as Guest
+                          <button className="cartBtn checkoutIcon cart-items-text" type="submit">
+                            Place an order <FontAwesomeIcon icon={faCheckCircle} />
                           </button>
                         </li>
                       </ul>

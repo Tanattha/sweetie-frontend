@@ -1,5 +1,5 @@
 import { CREATE_ORDER, CLEAR_CART, CLEAR_ORDER, FETCH_ORDERS } from "./types";
-import { USERS_URL } from "../config"
+import { USERS_URL,CHECKOUT_URL } from "../config"
 export const createOrder = (order) => (dispatch) => {
   fetch(USERS_URL, {
     method: "POST",
@@ -20,7 +20,7 @@ export const clearOrder = () => (dispatch) => {
   dispatch({ type: CLEAR_ORDER });
 };
 export const fetchOrders = () => (dispatch) => {
-  fetch(FETCH_ORDERS)
+  fetch(CHECKOUT_URL)
     .then((res) => res.json())
     .then((data) => {
       dispatch({ type: FETCH_ORDERS, payload: data });

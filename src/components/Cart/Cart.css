@@ -31,11 +31,13 @@
   
   font-size: 2rem;
   color: var(--mainPink);
+  text-align: center;
   border-bottom: 0.1rem #c0c0c0 solid;
 }
 .cart-items-text {
   text-transform: capitalize;
   font-size: 20px;
+  
 }
 .removeItemButton {
   left: 5rem;
@@ -89,10 +91,43 @@ form {
 .form-container {
   width: 100%;
   padding: 0;
+  line-height: 1.5;
   list-style-type: none;
 }
 .form-container li {
   display: flex;
   flex-direction: column;
   padding: 1rem;
+  line-height: 1.5;
+}
+.form-input{
+  line-height: 2;
+}
+
+.cartBtn {
+  font-family: 'Nanum Pen Script', cursive;
+  background-color: black;
+  text-align: center;
+  vertical-align: middle;
+  user-select: none;
+  font-size: 2rem;
+  text-transform: uppercase;
+  border-radius: 0.25rem;
+  padding: 0.5rem;
+ 
+}
+
+.cartBtn:hover {
+  color: white;
+}
+.orderColor{
+  position: absolute;
+  color: var(--mainPink);
+  font-size: 2rem;
+  left: 300px;
+ 
+}
+
+.order-text{
+  font-size: 2rem;
 }

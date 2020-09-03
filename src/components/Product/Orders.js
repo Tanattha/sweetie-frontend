@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { fetchOrders } from "../../actions/orderActions";
-import formatCurrency from "../../util";
+//import formatCurrency from "../../util";
 
 class Orders extends Component {
   componentDidMount() {
@@ -22,7 +22,6 @@ class Orders extends Component {
               <th>TOTAL</th>
               <th>NAME</th>
               <th>EMAIL</th>
-             
               <th>ITEMS</th>
             </tr>
           </thead>
@@ -31,13 +30,13 @@ class Orders extends Component {
               <tr>
                 <td>{order.id}</td>
                 <td>{order.created_at}</td>
-                <td> {formatCurrency(order.total)}</td>
-                <td>{order.name}</td>
-                <td>{order.email}</td>
+                <td> {order.total}</td>
+                <td>{order.user.name}</td>
+                <td>{order.user.email}</td>
                 <td>
-                  {order.cartItems.map((item) => (
+                  {order.products.map((product) => (
                     <div>
-                      {item.count} {" x "} {item.title}
+                      {product.count} {" x "} {product.title}
                     </div>
                   ))}
                 </td>

@@ -11,8 +11,6 @@ import { BASE_URL } from "../../config"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faShoppingCart } from '@fortawesome/free-solid-svg-icons'
 
-
-
 class Products extends Component {
   constructor(props) {
     super(props);
