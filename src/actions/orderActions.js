@@ -1,10 +1,11 @@
 import { CREATE_ORDER, CLEAR_CART, CLEAR_ORDER, FETCH_ORDERS } from "./types";
-
+import { USERS_URL } from "../config"
 export const createOrder = (order) => (dispatch) => {
-  fetch(CREATE_ORDER, {
+  fetch(USERS_URL, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
+      "Accept": "application/json"  
     },
     body: JSON.stringify(order),
   })

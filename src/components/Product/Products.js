@@ -46,7 +46,7 @@ class Products extends Component {
               {this.props.products.map((product) => (
                 <li key={product.id}>
                  
-                  <div className="img-container">
+                  <div className="img-container tabColor">
                   
                     <a
                       href={"#" + product.id}
@@ -56,14 +56,15 @@ class Products extends Component {
                       alt={product.title} 
                       className="store-img"></img>
                     </a>
-                    <div className="item-text">
+                    <div className="product-text ">
                     <p>{product.title}</p>
                      <p>
                        {formatCurrency(product.price)}</p>
                       <span className="store-item-icon" 
                       onClick={() => this.props.addToCart(product)}>
                       <FontAwesomeIcon icon={faShoppingCart} />
-                    </span>                 
+                    </span>
+                                   
                     </div>
                   </div>
                   
@@ -86,14 +87,14 @@ class Products extends Component {
                 <img src={BASE_URL+product.url} alt={product.title}></img>
 
                 <div className="product-details-description">
-                  <p className="item-text">
+                  <p className="product-text">
                   TITLE : {product.title}
                   </p>
-                  <p className="item-text">
+                  <p className="product-text">
                   DESCRIPTION : {product.description}
                   </p>
                    
-                    <p className="item-text">
+                    <p className="product-text">
                      PRICE : {formatCurrency(product.price)}
                     </p>
 

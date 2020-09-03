@@ -13,7 +13,7 @@ class Filter extends Component {
     ) : (
       <div className="filter headmenu-image">
         
-         <h1 className="filter-header">
+        <h1 className="filter-header">
       our <strong className="banner-title ">menu</strong>
       </h1>
       <div className="filter-header ">
@@ -52,7 +52,7 @@ class Filter extends Component {
             <option value="donut">Donuts</option>
             <option value="cookie">Cookies</option>
             <option value="roll">Rolls</option>
-            <option value="cake">Cakes</option>
+            <option value="brownie">Brownies</option>
           </select>
           </p>
         </div>
