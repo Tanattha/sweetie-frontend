@@ -6,14 +6,16 @@ export default function Footer() {
         <p>
         2020 &copy; Created by :
           <a
-            href="http://www.tanattha.info"
-            target="_blank" rel="noopener noreferrer">
+            href="https://www.linkedin.com/in/tanattha-thuenim/"
+            target="_blank" rel="noopener noreferrer"
+            alt="LinkedIn">
              Tanattha Thuenim &nbsp;
           </a>
           |
           <a
-            href="http://www.tanattha.info"
-            target="_blank" rel="noopener noreferrer">
+            href="https://github.com/Tanattha/sweetie-frontend"
+            target="_blank" rel="noopener noreferrer"
+            alt="Github">
              &nbsp; Github
           </a>
         </p>

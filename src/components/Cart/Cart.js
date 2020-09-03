@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-//import formatCurrency from "../../util";
+import formatCurrency from "../../util";
 import Fade from "react-reveal/Fade";
 import { connect } from "react-redux";
 import Modal from "react-modal";
@@ -70,11 +70,11 @@ class Cart extends Component {
                   
                   <li>
                     <div>Date:</div>
-                    <div>{order.createdAt}</div>
+                    <div>{order.created_at}</div>
                   </li>
                   <li>
                     <div>Total:</div>
-                    <div>{order.total}</div>
+                    <div>{formatCurrency(order.total)}</div>
                   </li>
                   <li>
                     <div>Cart Items:</div>
@@ -110,7 +110,7 @@ class Cart extends Component {
                           {item.title}
                           </div>
                       <div className="cart-items-text">
-                        {item.price} x {item.count}{" "}
+                      {formatCurrency(item.price)} x {item.count}{" "}
                         
                         &nbsp;&nbsp;
                         <button
@@ -133,9 +133,9 @@ class Cart extends Component {
                 <div className="total">
                   <div>
                     Total:{" "}
-                    {
+                    {formatCurrency(
                       cartItems.reduce((a, c) => a + c.price * c.count, 0)
-                    }
+                    )}
                   </div>
                    <span className="checkoutIcon" 
                       onClick={() => this.setState({ showCheckout: true })}>
