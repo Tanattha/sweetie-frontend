@@ -1,0 +1,143 @@
+.header-review {
+  padding-bottom: 2rem;
+}
+.review-content {
+  background-image: url("/img/review-bg.jpg");
+ 
+  background-size: 100% auto;
+  background-repeat: no-repeat;
+
+}
+main {
+  display: grid;
+  place-items: center;
+  
+ max-height: 730px;
+ overflow: auto;
+ scroll-behavior: smooth;
+padding-bottom: 2rem;
+
+
+}
+::-webkit-scrollbar-thumb {
+  background: red; 
+  border-radius: 10px;
+}
+
+li::marker {
+  display: none;
+}
+.review-title {
+  text-align: center;
+  margin-bottom: 2rem;
+  margin-top: 5rem;
+}
+.underline {
+  height: 0.25rem;
+  width: 5rem;
+  background: var(--mainYellow);
+  margin-left: auto;
+  margin-right: auto;
+}
+.addreview-container{
+  width: 600px;
+  height: auto;
+  place-items: center;
+  
+}
+.reviewform-container{
+
+  padding: 0;
+  line-height: 1.5;
+  
+  border-radius: 2rem;
+  
+  
+}
+.reviewform-container li {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+  line-height: 1.5;
+  
+}
+.reviewform-input{
+  line-height: 2;
+}
+
+.review-container {
+ 
+  width: 100vw;
+  max-width: 700px;
+  padding-bottom: 2rem;
+}
+.review {
+  background: #fff;
+  padding: 1rem 2rem;
+  border-radius: 1.5rem;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s linear;
+  text-align: center;
+
+}
+
+.review:hover {
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.review-head {
+    text-transform: capitalize;
+    text-align: center;
+   color: var(--mainPink);
+   margin-top: 0;
+  }
+.review-header:hover {
+   color: black;
+  }
+.review-logo {
+  width: 50px;
+  height: auto;
+  
+}
+
+.review-header{
+  font-size: 2.5rem;
+  padding-top: 0.5rem;
+  color: var(--mainPink);
+  margin: 0rem;
+}
+
+.review-text{
+  font-size: 1rem;
+  color: black;
+  margin: 0rem;
+}
+.left-col {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #ddd;
+}
+
+.reviewIcon {
+  padding-top: 5rem;
+ margin-bottom: 0;
+  align-items: center;
+  font-size: 2rem;
+  color: white;
+  cursor: pointer;
+  text-align: center;
+}
+
+.reviewIcon:hover {
+  color: var(--mainPink)
+}
+.close-review {
+ 
+  float: right;
+  cursor: pointer;
+  background-color: var(--mainPink);
+  color: var(--mainWhite);
+  margin: 0;
+}

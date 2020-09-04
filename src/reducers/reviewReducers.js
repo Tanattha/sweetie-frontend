@@ -5,7 +5,7 @@ export const reviewReducers = (state = {}, action) => {
         case FETCH_REVIEWS:
       return { reviews: action.payload };
         case ADD_REVIEW:
-            return { reviews: action.payload };
+            return { reviews: [...state.reviews, action.payload] };
         default: 
             return state;
     }

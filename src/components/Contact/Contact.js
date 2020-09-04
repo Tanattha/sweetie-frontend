@@ -5,7 +5,7 @@ export default function Contact() {
   return (
     <header className="contact">
       <div className="container header">
-        <h1>Thank you for coming to my shop!</h1>
+        <h1>Thank you for coming to Sweetie!</h1>
         <h2>Feel free to contact me here</h2>
        
           <div className="contact-icon-container overlay">
