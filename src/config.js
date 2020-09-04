@@ -4,7 +4,7 @@ export const CATEGORIES_URL = `${BASE_URL}/categories`
 export const USERS_URL = `${BASE_URL}/users`
 export const CART_PRODUCTS_URL = `${BASE_URL}/cart_products`
 export const CHECKOUT_URL = `${BASE_URL}/checkout`
-//export const REVIEWS_URL = `${BASE_URL}/reviews`
+export const REVIEWS_URL = `${BASE_URL}/reviews`
 
 
 

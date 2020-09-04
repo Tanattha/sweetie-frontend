@@ -140,7 +140,11 @@ h1 {
 .footer {
   font-size: 1.5rem;
   text-align: center;
+  left: 0;
+  bottom: 0;
+  position: fixed inherit;
   
+  width: 100%;
   color: var(--mainPink);
 }
 

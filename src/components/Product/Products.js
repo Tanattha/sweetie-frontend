@@ -28,24 +28,25 @@ class Products extends Component {
   closeModal = () => {
     this.setState({ product: null });
   };
+
   render() {
 
     const { product } = this.state;
     return (
-      
+
       <div className="store" id="store">
-        
         <div className="productcontainer">
         <Fade bottom cascade>
           {!this.props.products ? (
             <div>Loading...</div>
           ) : (
+/*PRODUCT*/
             <ul className="store-items">
               {this.props.products.map((product) => (
+                
                 <li key={product.id}>
                  
                   <div className="img-container tabColor">
-                  
                     <a
                       href={"#" + product.id}
                       onClick={() => this.openModal(product)}
@@ -62,10 +63,8 @@ class Products extends Component {
                       onClick={() => this.props.addToCart(product)}>
                       <FontAwesomeIcon icon={faShoppingCart} />
                     </span>
-                                   
                     </div>
                   </div>
-                  
                 </li>
               ))}
             </ul>
@@ -73,11 +72,11 @@ class Products extends Component {
         </Fade>
       </div>
 
-
+{/*PRODUCT POP UP*/}  
         {product && (
           <Modal isOpen={true} onRequestClose={this.closeModal}>
             <Zoom>
-              
+            
               <div className="product-details">
               <button className="btn close-modal" onClick={this.closeModal}>
                 x
@@ -99,12 +98,9 @@ class Products extends Component {
                     <p className="store-item-icon pointCursor" 
                       onClick={() => this.props.addToCart(product)}>
                       ADD TO CART : <FontAwesomeIcon icon={faShoppingCart} />
-                    </p>                 
+                    </p>                         
                 </div>
-                <div className="product-details-description">
-                 <p>REVIEW GOES HERE</p> 
-                </div>
-              </div>
+              </div> 
             </Zoom>
           </Modal>
         )}

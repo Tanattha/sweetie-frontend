@@ -10,7 +10,6 @@ export default function About() {
          <Filter />
       <div className="content">
         <div className="main">
-         
           <Products />
         </div>
         <div className="sidebar">

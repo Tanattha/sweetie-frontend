@@ -64,10 +64,12 @@ h5 {
   max-width: 100%;
   cursor: pointer;
   border-radius: 0.25rem;
+  cursor: pointer;
 }
 .filter-btn {
   margin: 0.5rem;
   background: var(--mainPink);
+  cursor: pointer;
 }
 .tabColor {
  background-color: white;
@@ -113,6 +115,7 @@ h5 {
   position: relative;
   padding: 1rem;
   align-items: center;
+  cursor: pointer;
   color: var(--mainPink);
 }
 .img-container:hover .store-item-icon {

@@ -5,7 +5,7 @@ export const orderReducers = (state = {}, action) => {
     case CREATE_ORDER:
       return { order: action.payload };
     case CLEAR_ORDER:
-      return { order: null };
+      return { order: null ,cartItems : null};
     case FETCH_ORDERS:
       return { orders: action.payload };
     default:
