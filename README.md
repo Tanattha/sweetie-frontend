@@ -8,11 +8,11 @@ This part was built with React / Redux. Contained with container and stateless c
 
 ## Live App
 
-[CLICK HERE]
+[CLICK HERE](https://tanattha.github.io/sweetie-frontend/)
 
 ## Video Walkthrough
 
-[CLICK HERE]
+[CLICK HERE](https://youtu.be/MyaKC1odjns)
 
 ## Installation
 

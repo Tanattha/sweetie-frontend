@@ -1,4 +1,5 @@
-export const BASE_URL = "http://127.0.0.1:3000"
+//export const BASE_URL = "http://127.0.0.1:3000"
+export const BASE_URL = "https://sweetie-backend.herokuapp.com"
 export const PRODUCTS_URL = `${BASE_URL}/products`
 export const CATEGORIES_URL = `${BASE_URL}/categories`
 export const USERS_URL = `${BASE_URL}/users`

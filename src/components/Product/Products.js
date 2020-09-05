@@ -74,8 +74,8 @@ class Products extends Component {
 
 {/*PRODUCT POP UP*/}  
         {product && (
-          <Modal isOpen={true} onRequestClose={this.closeModal}>
-            <Zoom>
+          <Modal isOpen={true} onRequestClose={this.closeModal} className="zoom-product">
+            <Zoom className="zoom-product">
             
               <div className="product-details">
               <button className="btn close-modal" onClick={this.closeModal}>

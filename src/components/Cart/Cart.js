@@ -54,8 +54,8 @@ class Cart extends Component {
         )}
 {/* ORDER POP UP*/}
         {order && (
-          <Modal isOpen={true} onRequestClose={this.closeModal}>
-            <Zoom>
+          <Modal isOpen={true} onRequestClose={this.closeModal} className="zoom-product">
+            <Zoom className="zoom-product">
               }
               <div className="order-details">
                 <button className="btn close-modal" onClick={this.closeModal}>
