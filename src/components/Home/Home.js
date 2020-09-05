@@ -1,7 +1,8 @@
-import React from 'react';
+import React, {Component} from 'react'
 const imgUrl = `url("${process.env.PUBLIC_URL}/img/header.jpeg")`;
 
-export default function Home() {
+export default class Home extends Component {
+  render (){
   return (
     <div className="max-height" style={{ backgroundImage: imgUrl }} id="home">
       <div className="banner">
@@ -16,8 +17,8 @@ export default function Home() {
         </a>
       </div>
     </div>
-
-    
   );
 }
+}
+
 

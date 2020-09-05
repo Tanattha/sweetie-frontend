@@ -27,8 +27,6 @@ export const addReview = (review) => dispatch => {
       dispatch({ 
         type: ADD_REVIEW, 
         payload: review });
-     
     })
-    
   };
    

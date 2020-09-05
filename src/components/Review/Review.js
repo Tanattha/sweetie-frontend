@@ -40,8 +40,10 @@ constructor(props) {
       <div className="header-review">
       
             <div className="addreview-container">
+            <div className="reviewform-container">
             <form onSubmit={this.addReview}>
-              <ul className="reviewform-container">
+
+            <ul>
                   
                 <p className="cart cart-header">Create a review </p>
                
@@ -74,8 +76,10 @@ constructor(props) {
                     Submit <FontAwesomeIcon icon={faCheckCircle} />
                   </button>
                 </li>
-              </ul>
+                </ul>
+             
             </form>
+            </div>
             </div>
           
       </div>
