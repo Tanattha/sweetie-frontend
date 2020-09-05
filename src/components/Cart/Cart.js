@@ -67,31 +67,35 @@ class Cart extends Component {
 
                 <ul>
                   <li className="order-text">
-                    Order ID : <sapn className="orderColor">{order.id}</sapn>
+                    Order ID : <span className="orderColor">{order.id}</span>
                   </li>
                   <li className="order-text">
-                    Name : <sapn className="orderColor">{order.name}</sapn>
+                    Name : <span className="orderColor">{order.name}</span>
                   </li>
                   <li className="order-text">
-                    Email : <sapn className="orderColor">{order.email}</sapn>
+                    Email : <span className="orderColor">{order.email}</span>
                   </li>
                   <li className="order-text">
                     Total:{" "}
-                    <sapn className="orderColor">
+                    <span className="orderColor">
                       {formatCurrency(
                         this.props.cartItems.reduce(
                           (a, b) => a + b.price * b.count,
                           0
                         )
                       )}
-                    </sapn>
+                    </span>
                   </li>
                   <li className="order-text">
                     Cart Items:{" "}
                     {cartItems.map((product) => (
-                      <sapn className="orderColor">
-                        {product.count} {" x "} {product.title}
-                      </sapn>
+                        
+                      <span className="orderColor">
+                     {product.count} {" x "} {product.title}  &nbsp; &nbsp;
+                        
+                      </span>
+                      
+                    
                     ))}
                   </li>
                 </ul>

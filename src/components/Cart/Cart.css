@@ -121,12 +121,14 @@ form {
   color: white;
 }
 .orderColor{
-  position: absolute;
+  
   color: var(--mainPink);
   font-size: 2rem;
   left: 300px;
- 
+  justify-content: space-between;
 }
+
+
 
 .order-text{
   font-size: 2rem;
