@@ -8,7 +8,7 @@ This part was built with React / Redux. Contained with container and stateless c
 
 ## Live App
 
-[CLICK HERE](https://tanattha.github.io/sweetie-frontend/)
+[CLICK HERE](https://sweetie-frontend.herokuapp.com/)
 
 ## Video Walkthrough
 
