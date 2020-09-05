@@ -1,7 +1,9 @@
-import React from "react";
+import React, {Component} from 'react'
 import "./Contact.css";
 
-export default function Contact() {
+export default class About extends Component {
+
+  render (){
   return (
     <header className="contact">
       <div className="container header">
@@ -30,5 +32,5 @@ export default function Contact() {
         </div>
       </div>
     </header>
-  );
+  )};
 }

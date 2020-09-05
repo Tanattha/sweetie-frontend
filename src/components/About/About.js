@@ -1,7 +1,8 @@
-import React from 'react';
+import React, {Component} from 'react'
 import './About.css';
+export default class About extends Component {
 
-export default function About() {
+  render (){
   return (
     <div className="container">
       <section className="about" id="about">
@@ -26,5 +27,5 @@ export default function About() {
         </div>
       </section>
     </div>
-  );
+  )};
 };

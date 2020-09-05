@@ -1,7 +1,8 @@
-import React from 'react';
+import React, {Component} from 'react'
 
-export default function Footer() {
-    return (
+export default class Home extends Component {
+  render (){
+  return (
       <footer className="footer">
         <p>
         2020 &copy; Created by :
@@ -20,6 +21,6 @@ export default function Footer() {
           </a>
         </p>
       </footer>
-    );
+    )};
 }
 
