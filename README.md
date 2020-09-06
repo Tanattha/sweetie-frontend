@@ -5,6 +5,7 @@
 This part was built with React / Redux. Contained with container and stateless components to determine an app's behaviour. Utilized Redux middleware to respond and modify state change and Redux Thunk middleware to send and receive data from a Rails server. 
 
 <img src="./public/img/example.png" width="640" height="350" />
+<img src="./public/img/example2.png" width="640" height="350" />
 
 ## Live App
 
