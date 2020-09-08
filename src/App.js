@@ -9,6 +9,7 @@ import ShowReviews from "./components/Review/ShowReviews"
 import Footer from './components/Home/Footer';
 import Contact from './components/Contact/Contact'
 
+
 class App extends React.Component {
   render() {
     
@@ -61,5 +62,5 @@ class App extends React.Component {
   )
 }
 }
-export default App;
+export default App
 

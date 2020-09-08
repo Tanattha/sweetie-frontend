@@ -38,7 +38,6 @@ class Cart extends Component {
   closeModal = () => {
     this.props.clearOrder();
     window.location.reload();
-    
   };
 
   render() {
