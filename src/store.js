@@ -6,7 +6,7 @@ import { cartReducers } from "./reducers/cartReducers";
 import { orderReducers } from "./reducers/orderReducers";
 import { reviewReducers } from "./reducers/reviewReducers";
 
-const initialState = {};
+
 const store = createStore(
   combineReducers({
     products: productReducers,
@@ -14,7 +14,6 @@ const store = createStore(
     order: orderReducers,
     review: reviewReducers,
   }),
-  initialState,
   composeWithDevTools(applyMiddleware(thunk))
 );
 export default store;
