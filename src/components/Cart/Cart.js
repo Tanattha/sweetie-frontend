@@ -34,7 +34,7 @@ class Cart extends Component {
       cartItems: this.props.cartItems,
     };
     this.props.createOrder(order);
-    this.props.clearCart();
+
   };
 
   readytoCheckout = () => {
@@ -57,6 +57,7 @@ class Cart extends Component {
       showCheckout: false,
       showPlaceorder: false,
     };
+    this.props.clearCart();
    this.setState(ordered);
   };
 

@@ -7,7 +7,3 @@ export const CLEAR_CART = "CLEAR_CART";
 export const ORDER_PRODUCTS_BY_PRICE = "ORDER_PRODUCTS_BY_PRICE";
 export const ADD_REVIEW = "ADD_REVIEW";
 export const FETCH_REVIEWS = "FETCH_REVIEWS";
-
-export const CLEAR_ORDER = "CLEAR_ORDER";
-
-export const FETCH_ORDER = "FETCH_ORDER";
