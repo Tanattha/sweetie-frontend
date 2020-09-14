@@ -85,13 +85,12 @@ constructor(props) {
       </div>
     )
   }}
-export default connect(
-    (state) => ({
-      review: state.review
-      
-    }),
-    { addReview }
-)(Review);
-  
 
-    
+const mSTP = (state) => {
+  return {
+     review: state.review
+  };
+};
+
+export default connect(mSTP, {addReview})(Review);
+

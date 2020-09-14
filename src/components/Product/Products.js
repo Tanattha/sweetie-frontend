@@ -108,10 +108,11 @@ class Products extends Component {
     );
   }
 }
-export default connect(
-  (state) => ({ products: state.products.filteredItems }),
-  {
-    fetchProducts,
-    addToCart,
+
+const mSTP = state => {
+  return {
+    products: state.products.filteredItems
   }
-)(Products);
+}
+
+export default connect(mSTP, {fetchProducts, addToCart})(Products);

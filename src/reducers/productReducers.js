@@ -5,6 +5,7 @@ import {
 } from "../actions/types";
 
 export const productReducers = (state = {}, action) => {
+  //console.log("productReducers:"+action);
   switch (action.type) {
     case FILTER_PRODUCTS_BY_CATEGORY:
       return {

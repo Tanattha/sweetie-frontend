@@ -4,12 +4,11 @@ import { REVIEWS_URL } from "../config"
 export const fetchReviews = () => async (dispatch) => {
     const res = await fetch(REVIEWS_URL);
     const data = await res.json();
-    console.log(data);
+    
     dispatch({
       type: FETCH_REVIEWS,
       payload: data,
     });
-   
   };
   
 

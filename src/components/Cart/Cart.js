@@ -4,8 +4,8 @@ import Fade from "react-reveal/Fade";
 import { connect } from "react-redux";
 import Modal from "react-modal";
 import Zoom from "react-reveal/Zoom";
-import { removeFromCart } from "../../actions/cartActions";
-import { createOrder, clearOrder } from "../../actions/orderActions";
+import { removeFromCart, clearCart } from "../../actions/cartActions";
+import { createOrder } from "../../actions/orderActions";
 import { BASE_URL } from "../../config";
 import "./Cart.css";
 import "../Product/Product.css";
@@ -13,16 +13,17 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCreditCard, faCheckCircle } from "@fortawesome/free-solid-svg-icons";
 
 class Cart extends Component {
-  constructor(props) {
+ /* constructor(props) {
     super(props);
-    this.state = {
-      name: "",
-      email: "",
-      showCheckout: false,
-    };
+
+    
   }
-  handleInput = (e) => {
-    this.setState({ [e.target.name]: e.target.value });
+  */
+  state = {
+    name: "",
+    email: "",
+    showCheckout: false,
+    showPlaceorder: false,
   };
 
   createOrder = (e) => {
@@ -33,15 +34,39 @@ class Cart extends Component {
       cartItems: this.props.cartItems,
     };
     this.props.createOrder(order);
+    this.props.clearCart();
   };
 
-  closeModal = () => {
-    this.props.clearOrder();
-    window.location.reload();
+  readytoCheckout = () => {
+    this.setState({ showCheckout: true });
+  };
+
+  readytoPlaceorder = () => {
+    this.setState({ showPlaceorder: true });
+  };
+
+  handleInput = (e) => {
+    this.setState({ [e.target.name]: e.target.value });
+  };
+
+  handleOnSubmit = (e) => {
+    e.preventDefault();
+    const ordered = {
+      name: "",
+      email: "",
+      showCheckout: false,
+      showPlaceorder: false,
+    };
+   this.setState(ordered);
   };
 
   render() {
     const { cartItems, order } = this.props;
+
+    const sumPrice = formatCurrency(
+      cartItems.reduce((a, b) => a + b.price * b.count, 0)
+    );
+
     return (
       <div>
         {cartItems.length === 0 ? (
@@ -51,13 +76,19 @@ class Cart extends Component {
             You have {cartItems.length} in the cart{" "}
           </div>
         )}
-{/* ORDER POP UP*/}
+
+        {/* ORDER POP UP */}
+
         {order && (
-          <Modal isOpen={true} onRequestClose={this.closeModal} className="zoom-product">
+          <Modal
+            isOpen={this.state.showPlaceorder}
+            onRequestClose={this.allDone}
+            className="zoom-product"
+            ariaHideApp={false}
+          >
             <Zoom className="zoom-product">
-              }
               <div className="order-details">
-                <button className="btn close-modal" onClick={this.closeModal}>
+                <button className="btn close-modal" onClick={this.handleOnSubmit}>
                   x
                 </button>
                 <h3 className="cart cart-header">
@@ -75,26 +106,15 @@ class Cart extends Component {
                     Email : <span className="orderColor">{order.email}</span>
                   </li>
                   <li className="order-text">
-                    Total:{" "}
-                    <span className="orderColor">
-                      {formatCurrency(
-                        this.props.cartItems.reduce(
-                          (a, b) => a + b.price * b.count,
-                          0
-                        )
-                      )}
-                    </span>
+                    Total: <span className="orderColor">{sumPrice}</span>
                   </li>
+
                   <li className="order-text">
                     Cart Items:{" "}
                     {cartItems.map((product) => (
-                        
-                      <span className="orderColor">
-                     {product.count} {" x "} {product.title}  &nbsp; &nbsp;
-                        
+                      <span className="orderColor" key={product.id}>
+                        {product.count} {" x "} {product.title} &nbsp; &nbsp;
                       </span>
-                      
-                    
                     ))}
                   </li>
                 </ul>
@@ -102,8 +122,9 @@ class Cart extends Component {
             </Zoom>
           </Modal>
         )}
+
         <div>
-{/* CART */}
+          {/* CART */}
           <div className="cart">
             <Fade left cascade>
               <ul className="cart-items">
@@ -134,28 +155,20 @@ class Cart extends Component {
             </Fade>
           </div>
 
-{/* CHECKOUT */}
+          {/* CHECKOUT */}
           {cartItems.length !== 0 && (
             <div>
               <div className="cart">
                 <div className="total">
-                  <div>
-                    Total:{" "}
-                    {formatCurrency(
-                      cartItems.reduce((a, b) => a + b.price * b.count, 0)
-                    )}
-                  </div>
-                  <span
-                    className="checkoutIcon"
-                    onClick={() => this.setState({ showCheckout: true })}
-                  >
+                  <div>Total:{sumPrice}</div>
+                  <span className="checkoutIcon" onClick={this.readytoCheckout}>
                     <FontAwesomeIcon icon={faCreditCard} />
                   </span>
                 </div>
               </div>
               {this.state.showCheckout && (
                 <Fade right cascade>
-                  <form onSubmit={this.createOrder}>
+                  <form name="checkout-form" onSubmit={this.createOrder}>
                     <ul className="form-container">
                       <p className="cart cart-header">CHECK OUT </p>
 
@@ -184,6 +197,7 @@ class Cart extends Component {
                         <button
                           className="cartBtn checkoutIcon cart-items-text"
                           type="submit"
+                          onClick={this.readytoPlaceorder}
                         >
                           Place an order{" "}
                           <FontAwesomeIcon icon={faCheckCircle} />
@@ -200,11 +214,13 @@ class Cart extends Component {
     );
   }
 }
-
-export default connect(
-  (state) => ({
+const mSTP = (state) => {
+  return {
     order: state.order.order,
     cartItems: state.cart.cartItems,
-  }),
-  { removeFromCart, createOrder, clearOrder }
-)(Cart);
+  };
+};
+
+const mDTP = { removeFromCart, createOrder, clearCart };
+
+export default connect(mSTP, mDTP)(Cart);

@@ -3,14 +3,12 @@ import { connect } from "react-redux";
 import { fetchReviews } from "../../actions/reviewActions";
 import "./Review.css";
 
-
 class Reviews extends Component {
-
-componentDidMount() {
-  this.props.fetchReviews();
-}
+  componentDidMount() {
+    this.props.fetchReviews();
+  }
   render() {
-   const { reviews } = this.props;
+    const { reviews } = this.props;
 
     return !reviews ? (
       <div>Loading...</div>
@@ -18,7 +16,6 @@ componentDidMount() {
       <div>
         <main>
           <section className="review-container">
-           
             <div>
               {reviews.map((review) => (
                 <p key={review.id}>
@@ -31,11 +28,8 @@ componentDidMount() {
 
                     <p className="review-header ">{review.body}</p>
                     <p className="review-text">from : {review.name}</p>
-                 
                   </article>
-
                 </p>
-               
               ))}
             </div>
           </section>
@@ -45,11 +39,10 @@ componentDidMount() {
   }
 }
 
-export default connect(
-  (state) => ({
+const mSTP = (state) => {
+  return {
     reviews: state.review.reviews,
-  }),
-  {
-    fetchReviews
-  }
-)(Reviews);
+  };
+};
+
+export default connect(mSTP, { fetchReviews })(Reviews);
