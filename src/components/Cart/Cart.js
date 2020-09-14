@@ -13,18 +13,15 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCreditCard, faCheckCircle } from "@fortawesome/free-solid-svg-icons";
 
 class Cart extends Component {
- /* constructor(props) {
+  constructor(props) {
     super(props);
-
-    
+    this.state = {
+      name: "",
+      email: "",
+      showCheckout: false,
+      showPlaceorder: false,
+    };
   }
-  */
-  state = {
-    name: "",
-    email: "",
-    showCheckout: false,
-    showPlaceorder: false,
-  };
 
   createOrder = (e) => {
     e.preventDefault();
@@ -34,7 +31,6 @@ class Cart extends Component {
       cartItems: this.props.cartItems,
     };
     this.props.createOrder(order);
-
   };
 
   readytoCheckout = () => {
@@ -58,7 +54,7 @@ class Cart extends Component {
       showPlaceorder: false,
     };
     this.props.clearCart();
-   this.setState(ordered);
+    this.setState(ordered);
   };
 
   render() {
@@ -89,7 +85,10 @@ class Cart extends Component {
           >
             <Zoom className="zoom-product">
               <div className="order-details">
-                <button className="btn close-modal" onClick={this.handleOnSubmit}>
+                <button
+                  className="btn close-modal"
+                  onClick={this.handleOnSubmit}
+                >
                   x
                 </button>
                 <h3 className="cart cart-header">
