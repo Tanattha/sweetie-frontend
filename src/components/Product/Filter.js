@@ -6,13 +6,13 @@ import { filterProducts, sortProducts } from "../../actions/productActions";
 class Filter extends Component {
 
   sortedProducts = (e) => {
-    this.props.sortProducts(
+    this.props.dispatchSortProducts(
       this.props.filteredProducts,
       e.target.value)
   }
 
   filteredProducts = (e) => {
-    this.props.filterProducts(this.props.products, e.target.value)
+    this.props.dispatchFilterProducts(this.props.products, e.target.value)
   }
 
 
@@ -66,4 +66,11 @@ const mSTP = (state) => {
   };
 };
 
-export default connect(mSTP, { filterProducts, sortProducts })(Filter);
+const mDTP = (dispatch) => {
+  return {
+    dispatchFilterProducts: (products, category) => dispatch(filterProducts(products, category)),
+    dispatchSortProducts: (filteredProducts, sort) => dispatch(sortProducts(filteredProducts, sort)),
+  };
+};
+
+export default connect(mSTP, mDTP)(Filter);

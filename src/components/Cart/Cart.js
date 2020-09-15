@@ -30,7 +30,7 @@ class Cart extends Component {
       email: this.state.email,
       cartItems: this.props.cartItems,
     };
-    this.props.createOrder(order);
+    this.props.dispatchCreateOrder(order);
   };
 
   readytoCheckout = () => {
@@ -53,7 +53,7 @@ class Cart extends Component {
       showCheckout: false,
       showPlaceorder: false,
     };
-    this.props.clearCart();
+    this.props.dispatchClearCart();
     this.setState(ordered);
   };
 
@@ -143,7 +143,7 @@ class Cart extends Component {
                         {formatCurrency(item.price)} x {item.count} &nbsp;&nbsp;
                         <button
                           className="removeItemButton"
-                          onClick={() => this.props.removeFromCart(item)}
+                          onClick={() => this.props.dispatchRemoveFromCart(item)}
                         >
                           X
                         </button>
@@ -221,6 +221,12 @@ const mSTP = (state) => {
   };
 };
 
-const mDTP = { removeFromCart, createOrder, clearCart };
+const mDTP = (dispatch) => { 
+  return {
+    dispatchRemoveFromCart: (product) => dispatch(removeFromCart(product)),
+    dispatchCreateOrder: (order) => dispatch(createOrder(order)),
+    dispatchClearCart: () => dispatch(clearCart()),
+  };
+}
 
 export default connect(mSTP, mDTP)(Cart);

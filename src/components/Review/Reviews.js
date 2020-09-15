@@ -5,7 +5,7 @@ import "./Review.css";
 
 class Reviews extends Component {
   componentDidMount() {
-    this.props.fetchReviews();
+    this.props.dispatchFetchReviews();
   }
   render() {
     const { reviews } = this.props;
@@ -18,18 +18,17 @@ class Reviews extends Component {
           <section className="review-container">
             <div>
               {reviews.map((review) => (
-                <p key={review.id}>
+                <div key={review.id} >
                   <article className="review">
                     <img
                       className="review-logo"
                       src="../img/review-logo.png"
                       alt="review"
                     />
-
                     <p className="review-header ">{review.body}</p>
                     <p className="review-text">from : {review.name}</p>
                   </article>
-                </p>
+                </div>
               ))}
             </div>
           </section>
@@ -45,4 +44,10 @@ const mSTP = (state) => {
   };
 };
 
-export default connect(mSTP, { fetchReviews })(Reviews);
+const mDTP = (dispatch) => {
+  return {
+    dispatchFetchReviews: () => dispatch(fetchReviews()),
+  };
+};
+
+export default connect(mSTP, mDTP)(Reviews);

@@ -12,7 +12,6 @@ constructor(props) {
       name: "",
       body: "",
       showReview: false,
-  
     };
   }
 
@@ -21,14 +20,22 @@ constructor(props) {
   };
 
   
-  addReview = (e) => {
-    e.preventDefault();
+  handleOnSubmit = () => {
     const review = {
       name: this.state.name,
       body: this.state.body,
     };
-    this.props.addReview(review);
-    window.location.reload();
+    this.props.dispatchAddReview(review);  
+    this.handleReview();
+  };
+  
+  handleReview = () => {
+   const reviewed = {
+      name: "",
+      body: "",
+      showReview: false,
+    };
+    this.setState(reviewed);
   };
 
   render() {
@@ -41,10 +48,10 @@ constructor(props) {
       
             <div className="addreview-container">
             <div className="reviewform-container">
-            <form onSubmit={this.addReview}>
 
+            <form >
             <ul>
-                  
+              <br></br><br></br>
                 <p className="cart cart-header">Create a review </p>
                
                 <li>
@@ -72,6 +79,7 @@ constructor(props) {
                   <button
                     className="cartBtn checkoutIcon cart-items-text"
                     type="submit"
+                    onClick={this.handleOnSubmit}
                   >
                     Submit <FontAwesomeIcon icon={faCheckCircle} />
                   </button>
@@ -92,5 +100,11 @@ const mSTP = (state) => {
   };
 };
 
-export default connect(mSTP, {addReview})(Review);
+const mDTP = (dispatch) => {
+  return {
+    dispatchAddReview: (review) => dispatch(addReview(review)),
+  };
+};
+
+export default connect(mSTP, mDTP)(Review);
 
