@@ -143,7 +143,7 @@ class Cart extends Component {
                         {formatCurrency(item.price)} x {item.count} &nbsp;&nbsp;
                         <button
                           className="removeItemButton"
-                          onClick={() => this.props.dispatchRemoveFromCart(item)}
+                         onClick={() => this.props.dispatchRemoveFromCart(item)}
                         >
                           X
                         </button>
@@ -214,19 +214,19 @@ class Cart extends Component {
     );
   }
 }
+
 const mSTP = (state) => {
   return {
     order: state.order.order,
     cartItems: state.cart.cartItems,
   };
 };
-
-const mDTP = (dispatch) => { 
+const mDTP = (dispatch) => {
   return {
     dispatchRemoveFromCart: (product) => dispatch(removeFromCart(product)),
     dispatchCreateOrder: (order) => dispatch(createOrder(order)),
     dispatchClearCart: () => dispatch(clearCart()),
-  };
+  }
 }
 
 export default connect(mSTP, mDTP)(Cart);

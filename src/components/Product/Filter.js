@@ -15,7 +15,6 @@ class Filter extends Component {
     this.props.dispatchFilterProducts(this.props.products, e.target.value)
   }
 
-
   render() {
     return !this.props.filteredProducts ? (
       <div>Loading...</div>
@@ -70,6 +69,7 @@ const mDTP = (dispatch) => {
   return {
     dispatchFilterProducts: (products, category) => dispatch(filterProducts(products, category)),
     dispatchSortProducts: (filteredProducts, sort) => dispatch(sortProducts(filteredProducts, sort)),
+
   };
 };
 

@@ -5,10 +5,9 @@ export const fetchReviews = () => {
   return async (dispatch) => {
     const res = await fetch(REVIEWS_URL);
     const data = await res.json();
-
     dispatch({
       type: FETCH_REVIEWS,
-      payload: data,
+      payload: data
     });
   };
 };
@@ -27,7 +26,7 @@ export const addReview = (review) => {
       .then((review) => {
         dispatch({
           type: ADD_REVIEW,
-          payload: review,
+          payload: review
         });
       });
   };

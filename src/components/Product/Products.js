@@ -21,6 +21,7 @@ class Products extends Component {
   componentDidMount() {
     this.props.dispatchFetchProducts();
   }
+  
   openModal = (product) => {
     this.setState({ product });
   };
@@ -96,7 +97,7 @@ class Products extends Component {
 
                   <p
                     className="store-item-icon pointCursor"
-                    onClick={() => this.props.addToCart(product)}
+                    onClick={() => this.props.dispatchAddToCart(product)}
                   >
                     ADD TO CART : <FontAwesomeIcon icon={faShoppingCart} />
                   </p>
