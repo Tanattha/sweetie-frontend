@@ -5,21 +5,20 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {  faCheckCircle } from "@fortawesome/free-solid-svg-icons";
 import { addReview } from "../../actions/reviewActions";
 
+const initialState = {
+  name: "",
+  body: "",
+  showReview: false,
+};
+
 class Review extends Component {
-constructor(props) {
-    super(props);
-    this.state = {
-      name: "",
-      body: "",
-      showReview: false,
-    };
-  }
+
+  state = { initialState };
 
   handleInput = (e) => {
     this.setState({ [e.target.name]: e.target.value });
   };
 
-  
   handleOnSubmit = () => {
     const review = {
       name: this.state.name,
@@ -30,12 +29,7 @@ constructor(props) {
   };
   
   handleReview = () => {
-   const reviewed = {
-      name: "",
-      body: "",
-      showReview: false,
-    };
-    this.setState(reviewed);
+    this.setState(initialState);
   };
 
   render() {

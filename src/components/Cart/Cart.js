@@ -12,16 +12,22 @@ import "../Product/Product.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCreditCard, faCheckCircle } from "@fortawesome/free-solid-svg-icons";
 
+const initialState = {
+  name: "",
+  email: "",
+  showCheckout: false,
+  showPlaceorder: false,
+};
+
 class Cart extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      name: "",
-      email: "",
-      showCheckout: false,
-      showPlaceorder: false,
-    };
+    this.state = initialState;
   }
+
+  handleInput = (e) => {
+    this.setState({ [e.target.name]: e.target.value });
+  };
 
   createOrder = (e) => {
     e.preventDefault();
@@ -41,20 +47,10 @@ class Cart extends Component {
     this.setState({ showPlaceorder: true });
   };
 
-  handleInput = (e) => {
-    this.setState({ [e.target.name]: e.target.value });
-  };
-
   handleOnSubmit = (e) => {
     e.preventDefault();
-    const ordered = {
-      name: "",
-      email: "",
-      showCheckout: false,
-      showPlaceorder: false,
-    };
     this.props.dispatchClearCart();
-    this.setState(ordered);
+    this.setState(initialState);
   };
 
   render() {
@@ -143,7 +139,9 @@ class Cart extends Component {
                         {formatCurrency(item.price)} x {item.count} &nbsp;&nbsp;
                         <button
                           className="removeItemButton"
-                         onClick={() => this.props.dispatchRemoveFromCart(item)}
+                          onClick={() =>
+                            this.props.dispatchRemoveFromCart(item)
+                          }
                         >
                           X
                         </button>
@@ -226,7 +224,7 @@ const mDTP = (dispatch) => {
     dispatchRemoveFromCart: (product) => dispatch(removeFromCart(product)),
     dispatchCreateOrder: (order) => dispatch(createOrder(order)),
     dispatchClearCart: () => dispatch(clearCart()),
-  }
-}
+  };
+};
 
 export default connect(mSTP, mDTP)(Cart);

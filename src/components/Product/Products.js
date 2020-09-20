@@ -12,16 +12,13 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faShoppingCart } from "@fortawesome/free-solid-svg-icons";
 
 class Products extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      product: null,
-    };
-  }
+  
+  state = { product: null};
+
   componentDidMount() {
     this.props.dispatchFetchProducts();
   }
-  
+ 
   openModal = (product) => {
     this.setState({ product });
   };

@@ -4,7 +4,7 @@ import Products from "../Product/Products";
 import Cart from "../Cart/Cart";
 
 import "./Menu.css";
-export default function About() {
+export default function Menu() {
   return (
     <div>
       <Filter />
