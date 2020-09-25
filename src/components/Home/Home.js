@@ -12,6 +12,7 @@ export default class Home extends Component {
           <a href="/menu" className="btn banner-link text-uppercase my-2">
             ORDER NOW!
           </a>
+         
         </div>
       </div>
     );

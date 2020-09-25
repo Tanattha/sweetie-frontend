@@ -20,10 +20,7 @@ const initialState = {
 };
 
 class Cart extends Component {
-  constructor(props) {
-    super(props);
-    this.state = initialState;
-  }
+  state = { initialState };
 
   handleInput = (e) => {
     this.setState({ [e.target.name]: e.target.value });

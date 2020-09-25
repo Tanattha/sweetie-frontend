@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 import "./Product.css";
 import { filterProducts, sortProducts } from "../../actions/productActions";
 
-class Filter extends Component {
+class FilterOptions extends Component {
 
   sortedProducts = (e) => {
     this.props.dispatchSortProducts(
@@ -23,6 +23,7 @@ class Filter extends Component {
         <h1 className="filter-header">
           our <strong className="banner-title ">menu</strong>
         </h1>
+        
         <div className="filter-header ">
           <p className="filter-text">
             {" "}
@@ -73,4 +74,4 @@ const mDTP = (dispatch) => {
   };
 };
 
-export default connect(mSTP, mDTP)(Filter);
+export default connect(mSTP, mDTP)(FilterOptions);

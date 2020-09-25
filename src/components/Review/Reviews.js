@@ -4,6 +4,7 @@ import { fetchReviews } from "../../actions/reviewActions";
 import "./Review.css";
 
 class Reviews extends Component {
+  
   componentDidMount() {
     this.props.dispatchFetchReviews();
   }

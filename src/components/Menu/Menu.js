@@ -1,18 +1,22 @@
 import React from "react";
-import Filter from "../Product/Filter";
+import FilterOptions from "../Product/FilterOptions";
 import Products from "../Product/Products";
+//import FilterSortProducts from '../TestProduct/FilterSortProducts'
+
 import Cart from "../Cart/Cart";
 
 import "./Menu.css";
 export default function Menu() {
   return (
     <div>
-      <Filter />
+    
       <div className="content">
         <div className="main">
+          <FilterOptions/>
           <Products />
         </div>
         <div className="sidebar">
+       <br></br> <br></br><br></br><br></br>
           <Cart />
          
         </div>
