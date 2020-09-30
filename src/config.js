@@ -1,5 +1,5 @@
 
-export const BASE_URL = "https://sweetie-backend.herokuapp.com"
+export const BASE_URL = 'https://sweetie-backend.herokuapp.com'
 export const PRODUCTS_URL = `${BASE_URL}/products`
 export const USERS_URL = `${BASE_URL}/users`
 export const REVIEWS_URL = `${BASE_URL}/reviews`
